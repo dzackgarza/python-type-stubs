@@ -7,12 +7,12 @@ from sympy.assumptions import (
     AssumptionsContext,
     Predicate,
     Q,
-    ask,
     assuming,
     refine,
     register_handler,
     remove_handler,
 )
+from sympy.assumptions.ask import ask
 from sympy.calculus import (
     AccumBounds,
     apply_finite_diff,

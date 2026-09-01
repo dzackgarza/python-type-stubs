@@ -1,4 +1,5 @@
-from sympy.assumptions.assume import UndefinedPredicate
+from sympy.assumptions.assume import AssumptionsContext, UndefinedPredicate
+from sympy.logic.boolalg import Boolean
 from sympy.utilities.decorator import memoize_property
 
 from .handlers.calculus import FinitePredicate, InfinitePredicate, NegativeInfinitePredicate, PositiveInfinitePredicate
@@ -169,8 +170,12 @@ class AssumptionKeys:
     @memoize_property
     def le(self) -> UndefinedPredicate | LessThanPredicate: ...
 
-Q = ...
+Q: AssumptionKeys
 
-def ask(proposition, assumptions=..., context=...) -> bool | None: ...
+def ask(
+    proposition: Boolean | bool,
+    assumptions: Boolean | bool = ...,
+    context: AssumptionsContext = ...,
+) -> bool | None: ...
 def register_handler(key, handler) -> None: ...
 def remove_handler(key, handler) -> None: ...
